@@ -2,12 +2,12 @@
   "redirects": [
     {
       "source": "/tos",
-      "destination": "/tos.html",
+      "destination": "/Tos.html",
       "permanent": true
     },
     {
       "source": "/pp",
-      "destination": "/pp.html",
+      "destination": "/PrivacyPolicy.html",
       "permanent": true
     }
   ]

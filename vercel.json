@@ -7,7 +7,7 @@
     },
     {
       "source": "/pp",
-      "destination": "/PrivacyPolicy.html",
+      "destination": "/privacypolicy.html",
       "permanent": true
     }
   ]

@@ -1,500 +1,323 @@
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feqan Bot</title>
     <link rel="icon" type="image/x-icon" href="./images/logo.png">
-    <meta content="#dc2626" data-react-helmet="true" name="theme-color" />
-    <meta
-      name="title"
-      content="Feqan Bot - Sunucunuzu Bir Sonraki Seviyeye Taşıyın"
-    />
-    <meta
-      name="description"
-      content="Feqan Bot, çekilişler, seviye sistemi, Minecraft sunucu durumu takibi, oyunlar, buton rolleri ve daha birçok özelliği ile sunucu yönetimini ve etkileşimi artırmak için tasarlanmış çok yönlü bir Discord botudur."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="#" />
-    <meta
-      property="og:title"
-      content="Feqan Bot - Sunucunuzu Bir Sonraki Seviyeye Taşıyın"
-    />
-    <meta
-      property="og:description"
-      content="Feqan Bot, çekilişler, seviye sistemi, Minecraft sunucu durumu takibi, oyunlar, buton rolleri ve daha birçok özelliği ile sunucu yönetimini ve etkileşimi artırmak için tasarlanmış çok yönlü bir Discord botudur."
-    />
-    <meta property="og:image" content="./images/logo.png" />
-    <meta property="og:color" content="#5b21b6" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="#" />
-    <meta
-      property="twitter:title"
-      content="Feqan Bot - Sunucunuzu Bir Sonraki Seviyeye Taşıyın"
-    />
-    <meta
-      property="twitter:description"
-      content="Feqan Bot, çekilişler, seviye sistemi, Minecraft sunucu durumu takibi, oyunlar, buton rolleri ve daha birçok özelliği ile sunucu yönetimini ve etkileşimi artırmak için tasarlanmış çok yönlü bir Discord botudur."
-    />
-    <meta property="twitter:image" content="./images/logo.png" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta content="#dc2626" name="theme-color">
+    <meta name="title" content="Feqan Bot - Sunucunuzu Bir Sonraki Seviyeye Taşıyın">
+    <meta name="description" content="Feqan Bot, çekilişler, seviye sistemi, Minecraft sunucu durumu takibi, oyunlar, buton rolleri ve daha birçok özelliği ile sunucu yönetimini ve etkileşimi artırmak için tasarlanmış çok yönlü bir Discord botudur.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Feqan Bot - Sunucunuzu Bir Sonraki Seviyeye Taşıyın">
+    <meta property="og:description" content="Feqan Bot, çekilişler, seviye sistemi, Minecraft sunucu durumu takibi, oyunlar, buton rolleri ve daha birçok özelliği ile sunucu yönetimini ve etkileşimi artırmak için tasarlanmış çok yönlü bir Discord botudur.">
+    <meta property="og:image" content="./images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js"></script>
-  </head>
-  <body
-    class="bg-black text-white max-h-[400px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-red-500"
-  >
-    <div
-      id="loader"
-      class="fixed inset-0 bg-black z-50 flex items-center justify-center"
-    >
-      <div
-        class="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"
-      ></div>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .feature-card:hover { background: rgba(255,255,255,0.1); border-color: #dc2626; }
+        .nav-blur { backdrop-filter: blur(10px); }
+        #loader { position: fixed; inset: 0; background: black; z-index: 50; display: flex; align-items: center; justify-content: center; }
+        #mobileMenu { display: none; }
+        @media (max-width: 768px) { #mobileMenu.active { display: block; } }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <div id="loader">
+        <div class="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
     </div>
+
     <nav class="fixed w-full z-50 top-0">
-      <div class="nav-blur bg-black/30 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-20">
-            <div class="flex items-center gap-2">
-              <img
-                src="images/logo.png"
-                alt="Feqan Bot Logo"
-                class="w-10 h-10 rounded-lg"
-              />
-              <span
-                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
-                >Feqan Bot</span
-              >
+        <div class="nav-blur bg-black/30 border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-2">
+                        <img src="images/logo.png" alt="Feqan Bot Logo" class="w-8 h-8 rounded-lg">
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700">Feqan Bot</span>
+                    </div>
+                    <div class="hidden md:flex gap-6">
+                        <a href="#hero" class="text-white/70 hover:text-white transition-colors">Ana Sayfa</a>
+                        <a href="#features" class="text-white/70 hover:text-white transition-colors">Özellikler</a>
+                        <a href="#commands" class="text-white/70 hover:text-white transition-colors">Komutlar</a>
+                        <a href="#contact" class="text-white/70 hover:text-white transition-colors">İletişim</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button onclick="toggleMobileMenu()" class="text-white p-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="hidden md:block">
+                        <button class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all">Discord'a Ekle</button>
+                    </a>
+                </div>
+                <div id="mobileMenu" class="md:hidden">
+                    <div class="px-2 pt-2 pb-3 space-y-1 bg-black/50 rounded-lg mt-2">
+                        <a href="#hero" class="block px-3 py-2 text-white/70 hover:text-white">Ana Sayfa</a>
+                        <a href="#features" class="block px-3 py-2 text-white/70 hover:text-white">Özellikler</a>
+                        <a href="#commands" class="block px-3 py-2 text-white/70 hover:text-white">Komutlar</a>
+                        <a href="#contact" class="block px-3 py-2 text-white/70 hover:text-white">İletişim</a>
+                        <a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="block px-3 py-2 text-white/70 hover:text-white">Discord'a Ekle</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="hidden md:flex gap-8">
-              <a
-                href="#hero"
-                class="text-white/70 hover:text-white transition-colors"
-                >Ana Sayfa</a
-              >
-              <a
-                href="#features"
-                class="text-white/70 hover:text-white transition-colors"
-                >Özellikler</a
-              >
-              <a
-                href="#commands"
-                class="text-white/70 hover:text-white transition-colors"
-                >Komutlar</a
-              >
-              <a
-                href="#testimonials"
-                class="text-white/70 hover:text-white transition-colors"
-                >Yorumlar</a
-              >
-            </div>
-
-            <div class="md:hidden">
-              <button onclick="toggleMobileMenu()" class="text-white p-2">
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    class="menu-icon"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-
-            <a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="hidden md:block">
-              <button
-                class="bg-white/10 hover:bg-white/20 px-6 py-2 rounded-lg transition-all duration-300"
-              >
-                Discord'a Ekle
-              </button>
-            </a>
-          </div>
-
-          <div id="mobileMenu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 bg-black/50 rounded-lg mt-2">
-              <a
-                href="#hero"
-                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Ana Sayfa</a
-              >
-              <a
-                href="#features"
-                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Özellikler</a
-              >
-              <a
-                href="#commands"
-                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Komutlar</a
-              >
-              <a
-                href="#testimonials"
-                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Yorumlar</a
-              >
-              <a
-                href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot"
-                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Discord'a Ekle</a
-              >
-            </div>
-          </div>
         </div>
-      </div>
     </nav>
+
     <section id="hero" class="min-h-screen relative overflow-hidden">
-      <div class="absolute inset-0 gradient-bg opacity-10"></div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-black to-black"
-      ></div>
-
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="space-y-8 text-center lg:text-left mt-16 lg:mt-0">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-              Sunucunuzu 
-              <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
-                >Bir Sonraki Seviyeye</span
-              > Taşıyın
-            </h1>
-            <p class="text-lg md:text-xl text-white/70">
-              Gelişmiş moderasyon, müzik ve otomasyon özellikleri ile en güçlü Discord botunu deneyimleyin.
-            </p>
-            <div
-              class="flex flex-col gap-4 sm:flex-row sm:gap-8 justify-center lg:justify-start"
-            >
-              <a
-                href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot"
-                class="inline-flex items-center justify-center gradient-bg px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity duration-300"
-              >
-                Discord'a Ekle
-              </a>
-              <a
-                href="#commands"
-                class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl font-semibold transition-colors duration-300"
-              >
-                Komutları Görüntüle
-              </a>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-black to-black"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left mt-16 lg:mt-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                        Sunucunuzu <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700">Bir Sonraki Seviyeye</span> Taşıyın
+                    </h1>
+                    <p class="text-lg text-white/70">Gelişmiş moderasyon, müzik ve otomasyon özellikleri ile en güçlü Discord botunu deneyimleyin.</p>
+                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-6 justify-center lg:justify-start">
+                        <a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="inline-flex items-center justify-center gradient-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                            Discord'a Ekle
+                        </a>
+                        <a href="#commands" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl font-semibold transition-colors">
+                            Komutları Görüntüle
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-0 bg-red-500 rounded-3xl blur-3xl opacity-20"></div>
+                    <img src="images/logo.png" alt="Bot Dashboard" class="relative rounded-3xl w-full max-w-md mx-auto">
+                </div>
             </div>
-          </div>
-          <div class="relative">
-            <div class="lg:hidden"></div>
-            <div
-              class="lg:block hidden absolute inset-0 bg-red-500 rounded-3xl blur-3xl opacity-20"
-            ></div>
-            <img
-              src="images/logo.png"
-              alt="Bot Dashboard"
-              class="relative rounded-3xl w-full max-w-md mx-auto sm:max-w-full md:w-auto hidden lg:block"
-            />
-          </div>
         </div>
-      </div>
-    </section>
-    <section id="features" class="py-32 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4">Feqan Bot'un Özellikleri</h2>
-          <p class="text-xl text-white/70">
-            Discord sunucunuzu kolaylıkla geliştirmek ve yönetmek için ihtiyacınız olan her şey.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="feature-card p-8 rounded-2xl">
-            <div
-              class="w-14 h-14 gradient-bg rounded-xl mb-6 flex items-center justify-center text-2xl"
-            >
-              ⚡
-            </div>
-            <h3 class="text-2xl font-bold mb-4">%99.9 Çalışma Süresi</h3>
-            <p class="text-white/70">
-              Feqan Bot Yenilikçi Discord Botu.
-            </p>
-          </div>
-          <div class="feature-card p-8 rounded-2xl">
-            <div
-              class="w-14 h-14 gradient-bg rounded-xl mb-6 flex items-center justify-center text-2xl"
-            >
-              🔨
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Güçlü Moderasyon</h3>
-            <p class="text-white/70">
-              Yasaklar, susturmalar, uyarılar ve otomatik filtreler dahil olmak üzere gelişmiş moderasyon araçlarıyla sunucunuzu güvende tutun.
-            </p>
-          </div>
-          <div class="feature-card p-8 rounded-2xl">
-            <div
-              class="w-14 h-14 gradient-bg rounded-xl mb-6 flex items-center justify-center text-2xl"
-            >
-              🎁
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Çekilişler ve Ödüller</h3>
-            <p class="text-white/70">
-              Topluluğunuz için etkileşimli katılım butonları, yeniden çekilişler ve özelleştirilebilir ödül seçenekleri ile kolayca çekilişler oluşturun.
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section id="commands" class="py-32 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4">Komutlar</h2>
-          <p class="text-xl text-white/70">
-            Tüm mevcut bot komutlarını keşfedin
-          </p>
+    <section id="features" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Feqan Bot'un Özellikleri</h2>
+                <p class="text-lg text-white/70">Discord sunucunuzu kolaylıkla geliştirmek ve yönetmek için ihtiyacınız olan her şey.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-xl mb-4 flex items-center justify-center text-xl">⚡</div>
+                    <h3 class="text-xl font-bold mb-3">%99.9 Çalışma Süresi</h3>
+                    <p class="text-white/70">Feqan Bot Yenilikçi Discord Botu.</p>
+                </div>
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-xl mb-4 flex items-center justify-center text-xl">🔨</div>
+                    <h3 class="text-xl font-bold mb-3">Güçlü Moderasyon</h3>
+                    <p class="text-white/70">Yasaklar, susturmalar, uyarılar ve otomatik filtreler dahil olmak üzere gelişmiş moderasyon araçlarıyla sunucunuzu güvende tutun.</p>
+                </div>
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-xl mb-4 flex items-center justify-center text-xl">🎁</div>
+                    <h3 class="text-xl font-bold mb-3">Çekilişler ve Ödüller</h3>
+                    <p class="text-white/70">Topluluğunuz için etkileşimli katılım butonları, yeniden çekilişler ve özelleştirilebilir ödül seçenekleri ile kolayca çekilişler oluşturun.</p>
+                </div>
+            </div>
         </div>
-        <div class="space-y-6" id="commands-container"></div>
-      </div>
-    </section>
-    <section id="testimonials" class="py-32 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4 text-white">Kullanıcılarımız Ne Diyor</h2>
-          <p class="text-xl text-white/70">
-            Feqan Bot'un kullanıcılarımız için Discord sunucu yönetimini nasıl dönüştürdüğünü görün.
-          </p>
-        </div>
-        <div class="relative">
-          <div
-            class="flex overflow-x-auto space-x-8 pb-10 [&amp;::-webkit-scrollbar]:h-1 [&amp;::-webkit-scrollbar-thumb]:bg-red-500 [&amp;::-webkit-scrollbar-track]:rounded-full [&amp;::-webkit-scrollbar-thumb]:rounded-full"
-          >
-            <div
-              class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
-            >
-              <div
-                class="w-16 h-16 gradient-bg rounded-full mb-6 flex items-center justify-center text-2xl"
-              >
-                <img
-                  class="rounded-full"
-                  src="./images/user.png"
-                  alt="User 1"
-                />
-              </div>
-              <p class="text-white/70 text-lg mb-4">
-                "Bu bot tam anlamıyla oyunun kurallarını değiştiriyor!
-                Sunucumu yönetmek hiç bu kadar kolay olmamıştı.
-                Özellikler oldukça kapsamlı ve performansı birinci sınıf. Kesinlikle tavsiye ederim!"
-              </p>
-              <h4 class="text-xl font-bold text-white">Semed</h4>
-              <p class="text-sm text-white/70">Topluluk Yöneticisi</p>
-            </div>
-            <div
-              class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
-            >
-              <div
-                class="w-16 h-16 gradient-bg rounded-full mb-6 flex items-center justify-center text-2xl"
-              >
-                <img
-                  class="rounded-full"
-                  src="./images/user.png"
-                  alt="User 2"
-                />
-              </div>
-              <p class="text-white/70 text-lg mb-4">
-                "Feqan Bot, sunucumdaki her şeyi yönetmek için artık vazgeçilmezim.
-                Komutlar sezgisel, özelleştirme seçenekleri ise harika!"
-              </p>
-              <h4 class="text-xl font-bold text-white">Hidayet</h4>
-              <p class="text-sm text-white/70">Sunucu Yöneticisi</p>
-            </div>
-            <div
-              class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
-            >
-              <div
-                class="w-16 h-16 gradient-bg rounded-full mb-6 flex items-center justify-center text-2xl"
-              >
-                <img
-                  class="rounded-full"
-                  src="./images/user.png"
-                  alt="User 3"
-                />
-              </div>
-              <p class="text-white/70 text-lg mb-4">
-                "Başta pek inanmamıştım ama Feqan Bot resmen efsane çıktı!
-                Otomatik moderasyon işi çözüyor, etkileşim özellikleri de sunucuyu canlı tutuyor.
-                Beklentimin çok üstünde!"
-              </p>
-              <h4 class="text-xl font-bold text-white">Bextiyar</h4>
-              <p class="text-sm text-white/70">Sunucu Sahibi</p>
-            </div>
-            <div
-              class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
-            >
-              <div
-                class="w-16 h-16 gradient-bg rounded-full mb-6 flex items-center justify-center text-2xl"
-              >
-                <img
-                  class="rounded-full"
-                  src="./images/user.png"
-                  alt="User 4"
-                />
-              </div>
-              <p class="text-white/70 text-lg mb-4">
-                "Ciddi bir Discord topluluğu için kesinlikle şart!
-                Destek ekibi harika, bot ise şimdiye kadar denediklerimden çok daha akıcı çalışıyor!"
-              </p>
-              <h4 class="text-xl font-bold text-white">Revan</h4>
-              <p class="text-sm text-white/70">Sunucu Sahibi</p>
-            </div>
-            <div
-              class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
-            >
-              <div
-                class="w-16 h-16 gradient-bg rounded-full mb-6 flex items-center justify-center text-2xl"
-              >
-                <img
-                  class="rounded-full"
-                  src="./images/user.png"
-                  alt="User 5"
-                />
-              </div>
-              <p class="text-white/70 text-lg mb-4">
-                "Üç farklı botu bununla değiştirdim!
-                İhtiyacım olan her şeyi yapıyor, hatta fazlasını bile.
-                Özelleştirme seçenekleri bambaşka bir seviye."
-              </p>
-              <h4 class="text-xl font-bold text-white">Ümid</h4>
-              <p class="text-sm text-white/70">Sunucu Sahibi</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section
-      class="bg-black min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 md:p-16 lg:p-32"
-    >
-      <div class="text-center mb-20">
-        <h2 class="text-5xl font-bold mb-4 text-white">Bizimle İletişime Geçin</h2>
-        <p class="text-xl text-white/70">
-          Topluluğumuza katılın ve geliştirmeye katkıda bulunun.
-        </p>
-      </div>
-      <div
-        class="w-full max-w-2xl flex flex-col gap-8 items-center sm:px-6 lg:px-8"
-      >
-        <div
-          class="bg-white/5 border border-white/10 rounded-2xl p-6 w-full max-w-md transition-colors feature-card"
-        >
-          <div class="flex items-center gap-4 mb-6">
-            <img
-              src="images/logo.png"
-              alt="Server Icon"
-              class="w-12 h-12 rounded-xl"
-            />
-            <div>
-              <h3 class="text-white text-xl font-bold">Feqan Bot Topluluğu</h3>
-              <p class="text-white/70 text-sm">Resmi Discord Sunucusu</p>
+    <section id="commands" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Komutlar</h2>
+                <p class="text-lg text-white/70">Tüm mevcut bot komutlarını keşfedin</p>
             </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4 text-white/70 text-sm">
-              <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                <span>699 Çevrimiçi</span>
-              </div>
-              <div class="w-1 h-1 rounded-full bg-white/20"></div>
-              <span>1000 Üye</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/ban</h3>
+                    <p class="text-sm text-white/70">Kullanıcıyı sunucudan yasaklar</p>
+                </div>
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/kick</h3>
+                    <p class="text-sm text-white/70">Kullanıcıyı sunucudan atar</p>
+                </div>
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/mute</h3>
+                    <p class="text-sm text-white/70">Kullanıcıyı geçici olarak susturur</p>
+                </div>
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/giveaway</h3>
+                    <p class="text-sm text-white/70">Çekiliş başlatır</p>
+                </div>
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/level</h3>
+                    <p class="text-sm text-white/70">Seviye durumunu gösterir</p>
+                </div>
+                <div class="feature-card p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-red-500 mb-2">/play</h3>
+                    <p class="text-sm text-white/70">Müzik çalar</p>
+                </div>
             </div>
-            <a
-              href="#"
-              class="bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-              >Sunucuya Katıl</a
-            >
-          </div>
         </div>
-      </div>
     </section>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center py-16">
-        <button
-          onclick="scrollToTop()"
-          class="group bg-white/5 border border-white/10 rounded-2xl p-4 transition-all hover:border-red-500"
-        >
-          <svg
-            class="w-6 h-6 text-white/70 group-hover:text-white transition-colors"
-            fill="none"
-            viewbox="0 0 24 24"
-            stroke="currentcolor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <footer class="text-white py-16 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <img
-              class="h-10 mb-6"
-              src="./images/logo.png"
-              alt="Feqan Bot Logo"
-            />
-            <p class="text-lg text-white/70">
-              Feqan Bot, seviye sistemi, moderasyon, çekilişler ve daha fazlası gibi güçlü özellikleri ile Discord sunucu yönetiminizi dönüştürmek için nihai araçtır!
-            </p>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold mb-4">Hızlı Bağlantılar</h4>
-            <ul class="space-y-4">
-              <li>
-                <a href="#hero" class="text-white/70 hover:text-white">Ana Sayfa</a>
-              </li>
-              <li>
-                <a href="#features" class="text-white/70 hover:text-white"
-                  >Özellikler</a
-                >
-              </li>
-              <li>
-                <a href="#commands" class="text-white/70 hover:text-white"
-                  >Komutlar</a
-                >
-              </li>
-              <li>
-                <a href="#testimonials" class="text-white/70 hover:text-white"
-                  >Yorumlar</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold mb-4">Bizi Takip Edin</h4>
-            <ul class="space-y-4">
-              <li>
-                <a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="text-white/70 hover:text-white">Davet Et</a>
-              </li>
-              <li>
-                <a href="#" class="text-white/70 hover:text-white">Discord</a>
-              </li>
-            </ul>
-          </div>
+
+    <section id="testimonials" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Kullanıcılarımız Ne Diyor</h2>
+                <p class="text-lg text-white/70">Feqan Bot'un kullanıcılarımız için Discord sunucu yönetimini nasıl dönüştürdüğünü görün.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-full mb-4 flex items-center justify-center">
+                        <img class="rounded-full w-full h-full object-cover" src="./images/user.png" alt="Semed">
+                    </div>
+                    <p class="text-white/70 mb-4">"Bu bot tam anlamıyla oyunun kurallarını değiştiriyor! Sunucumu yönetmek hiç bu kadar kolay olmamıştı."</p>
+                    <h4 class="text-lg font-bold text-white">Semed</h4>
+                    <p class="text-sm text-white/70">Topluluk Yöneticisi</p>
+                </div>
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-full mb-4 flex items-center justify-center">
+                        <img class="rounded-full w-full h-full object-cover" src="./images/user.png" alt="Hidayet">
+                    </div>
+                    <p class="text-white/70 mb-4">"Feqan Bot, sunucumdaki her şeyi yönetmek için artık vazgeçilmezim. Komutlar sezgisel!"</p>
+                    <h4 class="text-lg font-bold text-white">Hidayet</h4>
+                    <p class="text-sm text-white/70">Sunucu Yöneticisi</p>
+                </div>
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 gradient-bg rounded-full mb-4 flex items-center justify-center">
+                        <img class="rounded-full w-full h-full object-cover" src="./images/user.png" alt="Bextiyar">
+                    </div>
+                    <p class="text-white/70 mb-4">"Başta pek inanmamıştım ama Feqan Bot resmen efsane çıktı! Otomatik moderasyon işi çözüyor."</p>
+                    <h4 class="text-lg font-bold text-white">Bextiyar</h4>
+                    <p class="text-sm text-white/70">Sunucu Sahibi</p>
+                </div>
+            </div>
         </div>
-        <div class="mt-12 border-t border-white/20 pt-6 text-center">
-          <p class="text-sm text-white/50">
-            © 2025 Feqan Bot. Tüm hakları saklıdır. • Discord Inc. ile bağlantılı değildir.
-          </p>
+    </section>
+
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Bizimle İletişime Geçin</h2>
+                <p class="text-lg text-white/70">Topluluğumuza katılın ve geliştirmeye katkıda bulunun.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="images/logo.png" alt="Server Icon" class="w-10 h-10 rounded-xl">
+                        <div>
+                            <h3 class="text-white text-lg font-bold">Feqan Bot Topluluğu</h3>
+                            <p class="text-white/70 text-sm">Resmi Discord Sunucusu</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4 text-white/70 text-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                <span>1,247 Çevrimiçi</span>
+                            </div>
+                            <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                            <span>3,891 Üye</span>
+                        </div>
+                        <a href="https://discord.gg/feqanbot" class="bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                            Sunucuya Katıl
+                        </a>
+                    </div>
+                </div>
+                <div class="feature-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white text-lg font-bold">E-posta Desteği</h3>
+                            <p class="text-white/70 text-sm">7/24 Destek Ekibi</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-white/70 text-sm">Hızlı yanıt süresi: ~2 saat</span>
+                        <a href="mailto:feqanbot@gmail.com" class="bg-red-500 hover:bg-red-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                            E-posta Gönder
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <footer class="text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <img class="h-8 mb-4" src="./images/logo.png" alt="Feqan Bot Logo">
+                    <p class="text-white/70">Feqan Bot, seviye sistemi, moderasyon, çekilişler ve daha fazlası gibi güçlü özellikleri ile Discord sunucu yönetiminizi dönüştürmek için nihai araçtır!</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-white/70 hover:text-white">Ana Sayfa</a></li>
+                        <li><a href="#features" class="text-white/70 hover:text-white">Özellikler</a></li>
+                        <li><a href="#commands" class="text-white/70 hover:text-white">Komutlar</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-white">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:feqanbot@gmail.com" class="text-white/70 hover:text-white">feqanbot@gmail.com</a></li>
+                        <li><a href="https://discord.gg/feqanbot" class="text-white/70 hover:text-white">Discord Sunucusu</a></li>
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1342766639913107527&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fwww.nerodiacraft.xyz&integration_type=0&scope=identify+bot" class="text-white/70 hover:text-white">Davet Et</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-white/20 pt-6 text-center">
+                <p class="text-sm text-white/50">© 2025 Feqan Bot. Tüm hakları saklıdır. • Discord Inc. ile bağlantılı değildir.</p>
+            </div>
+        </div>
     </footer>
-  </body>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add scroll-to-top button
+        window.addEventListener('scroll', () => {
+            const scrollButton = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) {
+                if (!scrollButton) {
+                    const button = document.createElement('button');
+                    button.id = 'scrollToTop';
+                    button.innerHTML = '↑';
+                    button.className = 'fixed bottom-8 right-8 bg-red-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-red-600 transition-colors z-40';
+                    button.onclick = scrollToTop;
+                    document.body.appendChild(button);
+                }
+            } else if (scrollButton) {
+                scrollButton.remove();
+            }
+        });
+    </script>
+</body>
 </html>

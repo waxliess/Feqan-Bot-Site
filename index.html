@@ -1,28 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YOUR BOT</title>
+    <title>Feqan Bot</title>
     <link rel="icon" type="image/x-icon" href="./images/logo.png">
     <meta content="#dc2626" data-react-helmet="true" name="theme-color" />
     <meta
       name="title"
-      content="YOUR BOT - Take Your Server to the Next Level"
+      content="Feqan Bot - Sunucunuzu Bir Üst Seviyeye Taşıyın"
     />
     <meta
       name="description"
-      content="YOUR BOT is a versatile Discord bot with features like giveaways, leveling, Minecraft server status tracking, games, button roles, and a much more, designed to enhance server management and engagement."
+      content="Feqan Bot, çekiliş, seviye sistemi, Minecraft sunucu durumu, oyunlar, buton rolleri ve daha fazlası ile Discord sunucu yönetimini geliştirir."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="#" />
     <meta
       property="og:title"
-      content="YOUR BOT - Take Your Server to the Next Level"
+      content="Feqan Bot - Sunucunuzu Bir Üst Seviyeye Taşıyın"
     />
     <meta
       property="og:description"
-      content="YOUR BOT is a versatile Discord bot with features like giveaways, leveling, Minecraft server status tracking, games, button roles, and a much more, designed to enhance server management and engagement."
+      content="Feqan Bot, çekiliş, seviye sistemi, Minecraft sunucu durumu, oyunlar, buton rolleri ve daha fazlası ile Discord sunucu yönetimini geliştirir."
     />
     <meta property="og:image" content="./images/logo.png" />
     <meta property="og:color" content="#5b21b6" />
@@ -30,21 +30,49 @@
     <meta property="twitter:url" content="#" />
     <meta
       property="twitter:title"
-      content="YOUR BOT - Take Your Server to the Next Level"
+      content="Feqan Bot - Sunucunuzu Bir Üst Seviyeye Taşıyın"
     />
     <meta
       property="twitter:description"
-      content="YOUR BOT is a versatile Discord bot with features like giveaways, leveling, Minecraft server status tracking, games, button roles, and a much more, designed to enhance server management and engagement."
+      content="Feqan Bot, çekiliş, seviye sistemi, Minecraft sunucu durumu, oyunlar, buton rolleri ve daha fazlası ile Discord sunucu yönetimini geliştirir."
     />
     <meta property="twitter:image" content="./images/logo.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(135deg, #dc2626, #ef4444);
+      }
+      .nav-blur {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        border-color: rgba(220, 38, 38, 0.5);
+        transform: translateY(-5px);
+      }
+      .testimonial-card {
+        flex-shrink: 0;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+    </style>
   </head>
   <body
-    class="bg-black text-white max-h-[400px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-red-500"
+    class="bg-black text-white overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-red-500"
   >
     <div
       id="loader"
@@ -54,6 +82,7 @@
         class="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"
       ></div>
     </div>
+    
     <nav class="fixed w-full z-50 top-0">
       <div class="nav-blur bg-black/30 border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,12 +90,12 @@
             <div class="flex items-center gap-2">
               <img
                 src="images/logo.png"
-                alt="YOUR BOT Logo"
+                alt="Feqan Bot Logo"
                 class="w-10 h-10 rounded-lg"
               />
               <span
                 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
-                >YOUR BOT</span
+                >Feqan Bot</span
               >
             </div>
 
@@ -74,22 +103,22 @@
               <a
                 href="#hero"
                 class="text-white/70 hover:text-white transition-colors"
-                >Home</a
+                >Ana Sayfa</a
               >
               <a
                 href="#features"
                 class="text-white/70 hover:text-white transition-colors"
-                >Features</a
+                >Özellikler</a
               >
               <a
                 href="#commands"
                 class="text-white/70 hover:text-white transition-colors"
-                >Commands</a
+                >Komutlar</a
               >
               <a
                 href="#testimonials"
                 class="text-white/70 hover:text-white transition-colors"
-                >Testimonials</a
+                >Yorumlar</a
               >
             </div>
 
@@ -116,7 +145,7 @@
               <button
                 class="bg-white/10 hover:bg-white/20 px-6 py-2 rounded-lg transition-all duration-300"
               >
-                Add to Discord
+                Discord'a Ekle
               </button>
             </a>
           </div>
@@ -126,52 +155,49 @@
               <a
                 href="#hero"
                 class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Home</a
+                >Ana Sayfa</a
               >
               <a
                 href="#features"
                 class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Features</a
+                >Özellikler</a
               >
               <a
                 href="#commands"
                 class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Commands</a
+                >Komutlar</a
               >
               <a
                 href="#testimonials"
                 class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Testimonials</a
+                >Yorumlar</a
               >
               <a
                 href="#"
                 class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
-                >Add to Discord</a
+                >Discord'a Ekle</a
               >
             </div>
           </div>
         </div>
       </div>
     </nav>
+
     <section id="hero" class="min-h-screen relative overflow-hidden">
-      <div class="absolute inset-0 gradient-bg opacity-10"></div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-black to-black"
-      ></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/40 via-black to-black"></div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-8 text-center lg:text-left mt-16 lg:mt-0">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-              Take Your Server to the
+              Sunucunuzu
               <span
                 class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
-                >Next Level</span
-              >
+                >Bir Üst Seviyeye</span
+              > Taşıyın
             </h1>
             <p class="text-lg md:text-xl text-white/70">
-              Experience the most powerful Discord bot with advanced moderation,
-              music, and automation features.
+              Gelişmiş moderasyon, müzik ve otomasyon özellikleri ile en güçlü Discord botunu deneyimleyin.
             </p>
             <div
               class="flex flex-col gap-4 sm:flex-row sm:gap-8 justify-center lg:justify-start"
@@ -180,37 +206,36 @@
                 href="#"
                 class="inline-flex items-center justify-center gradient-bg px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity duration-300"
               >
-                Add to Discord
+                Discord'a Ekle
               </a>
               <a
                 href="#commands"
                 class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl font-semibold transition-colors duration-300"
               >
-                View Commands
+                Komutları Görüntüle
               </a>
             </div>
           </div>
           <div class="relative">
-            <div class="lg:hidden"></div>
             <div
               class="lg:block hidden absolute inset-0 bg-red-500 rounded-3xl blur-3xl opacity-20"
             ></div>
             <img
               src="images/logo.png"
               alt="Bot Dashboard"
-              class="relative rounded-3xl w-full max-w-md mx-auto sm:max-w-full md:w-auto hidden lg:block"
+              class="relative rounded-3xl w-full max-w-md mx-auto sm:max-w-full md:w-auto hidden lg:block float-animation"
             />
           </div>
         </div>
       </div>
     </section>
+
     <section id="features" class="py-32 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4">Features of YOUR BOT</h2>
+          <h2 class="text-5xl font-bold mb-4">Feqan Bot Özellikleri</h2>
           <p class="text-xl text-white/70">
-            Everything you need to enhance and manage your Discord server with
-            ease.
+            Discord sunucunuzu kolaylıkla geliştirmek ve yönetmek için ihtiyacınız olan her şey.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -220,10 +245,9 @@
             >
               ⚡
             </div>
-            <h3 class="text-2xl font-bold mb-4">99.9% Uptime</h3>
+            <h3 class="text-2xl font-bold mb-4">%99.9 Çalışma Süresi</h3>
             <p class="text-white/70">
-              YOUR BOT runs 24/7 with industry-leading uptime, ensuring your
-              server is always managed without interruptions.
+              Feqan Bot 24/7 çalışır ve endüstri lideri çalışma süresi ile sunucunuzun kesintisiz yönetilmesini sağlar.
             </p>
           </div>
           <div class="feature-card p-8 rounded-2xl">
@@ -232,10 +256,9 @@
             >
               🔨
             </div>
-            <h3 class="text-2xl font-bold mb-4">Powerful Moderation</h3>
+            <h3 class="text-2xl font-bold mb-4">Güçlü Moderasyon</h3>
             <p class="text-white/70">
-              Keep your server safe with advanced moderation tools, including
-              bans, mutes, warnings, and automated filters.
+              Yasaklama, susturma, uyarı ve otomatik filtreler dahil gelişmiş moderasyon araçlarıyla sunucunuzu güvende tutun.
             </p>
           </div>
           <div class="feature-card p-8 rounded-2xl">
@@ -244,10 +267,9 @@
             >
               🎁
             </div>
-            <h3 class="text-2xl font-bold mb-4">Giveaways & Rewards</h3>
+            <h3 class="text-2xl font-bold mb-4">Çekilişler ve Ödüller</h3>
             <p class="text-white/70">
-              Easily create giveaways with interactive join buttons, rerolls,
-              and customizable prize options for your community.
+              Etkileşimli katılım butonları, yeniden çekiliş ve özelleştirilebilir ödül seçenekleri ile kolayca çekiliş oluşturun.
             </p>
           </div>
         </div>
@@ -257,26 +279,51 @@
     <section id="commands" class="py-32 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4">Commands</h2>
+          <h2 class="text-5xl font-bold mb-4">Komutlar</h2>
           <p class="text-xl text-white/70">
-            Explore all available bot commands
+            Tüm mevcut bot komutlarını keşfedin
           </p>
         </div>
-        <div class="space-y-6" id="commands-container"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/moderasyon</h3>
+            <p class="text-white/70">Sunucu moderasyon komutları</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/çekiliş</h3>
+            <p class="text-white/70">Çekiliş oluştur ve yönet</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/seviye</h3>
+            <p class="text-white/70">Seviye sistemi komutları</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/oyun</h3>
+            <p class="text-white/70">Eğlenceli oyun komutları</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/müzik</h3>
+            <p class="text-white/70">Müzik çalma komutları</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-2 text-red-400">/yardım</h3>
+            <p class="text-white/70">Yardım ve bilgi komutları</p>
+          </div>
+        </div>
       </div>
     </section>
+
     <section id="testimonials" class="py-32 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-          <h2 class="text-5xl font-bold mb-4 text-white">What Our Users Say</h2>
+          <h2 class="text-5xl font-bold mb-4 text-white">Kullanıcılarımız Ne Diyor</h2>
           <p class="text-xl text-white/70">
-            See how YOUR BOT is transforming Discord server management for our
-            users.
+            Feqan Bot'un kullanıcılarımız için Discord sunucu yönetimini nasıl dönüştürdüğünü görün.
           </p>
         </div>
         <div class="relative">
           <div
-            class="flex overflow-x-auto space-x-8 pb-10 [&amp;::-webkit-scrollbar]:h-1 [&amp;::-webkit-scrollbar-thumb]:bg-red-500 [&amp;::-webkit-scrollbar-track]:rounded-full [&amp;::-webkit-scrollbar-thumb]:rounded-full"
+            class="flex overflow-x-auto space-x-8 pb-10 [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:bg-red-500 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full"
           >
             <div
               class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
@@ -287,16 +334,14 @@
                 <img
                   class="rounded-full"
                   src="./images/user.png"
-                  alt="User 1"
+                  alt="Kullanıcı 1"
                 />
               </div>
               <p class="text-white/70 text-lg mb-4">
-                "This bot is an absolute game-changer! Managing my server has
-                never been easier. The features are robust, and the performance
-                is top-notch. Highly recommend it!"
+                "Bu bot kesinlikle oyunun kurallarını değiştiriyor! Sunucumu yönetmek hiç bu kadar kolay olmamıştı. Özellikleri güçlü ve performans mükemmel. Kesinlikle tavsiye ederim!"
               </p>
-              <h4 class="text-xl font-bold text-white">Alex Nightshade</h4>
-              <p class="text-sm text-white/70">Community Moderator</p>
+              <h4 class="text-xl font-bold text-white">Alex Gece</h4>
+              <p class="text-sm text-white/70">Topluluk Moderatörü</p>
             </div>
             <div
               class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
@@ -307,15 +352,14 @@
                 <img
                   class="rounded-full"
                   src="./images/user.png"
-                  alt="User 2"
+                  alt="Kullanıcı 2"
                 />
               </div>
               <p class="text-white/70 text-lg mb-4">
-                "YOUR BOT is my new go-to for managing everything in my server.
-                The commands are intuitive, and the customization is fantastic!"
+                "Feqan Bot sunucumdaki her şeyi yönetmek için yeni favorim. Komutlar sezgisel ve özelleştirme harika!"
               </p>
-              <h4 class="text-xl font-bold text-white">Luna Everstorm</h4>
-              <p class="text-sm text-white/70">Server Admin</p>
+              <h4 class="text-xl font-bold text-white">Luna Sonsuz</h4>
+              <p class="text-sm text-white/70">Sunucu Yöneticisi</p>
             </div>
             <div
               class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
@@ -326,16 +370,14 @@
                 <img
                   class="rounded-full"
                   src="./images/user.png"
-                  alt="User 3"
+                  alt="Kullanıcı 3"
                 />
               </div>
               <p class="text-white/70 text-lg mb-4">
-                "I was skeptical at first, but wow! This bot exceeded my
-                expectations. The auto-moderation is a lifesaver, and the
-                engagement features keep my members active!"
+                "Başta şüpheciydim ama vay be! Bu bot beklentilerimi aştı. Otomatik moderasyon hayat kurtarıcı ve etkileşim özellikleri üyelerimi aktif tutuyor!"
               </p>
-              <h4 class="text-xl font-bold text-white">Ronan Void</h4>
-              <p class="text-sm text-white/70">Server Owner</p>
+              <h4 class="text-xl font-bold text-white">Ronan Boşluk</h4>
+              <p class="text-sm text-white/70">Sunucu Sahibi</p>
             </div>
             <div
               class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
@@ -346,15 +388,14 @@
                 <img
                   class="rounded-full"
                   src="./images/user.png"
-                  alt="User 4"
+                  alt="Kullanıcı 4"
                 />
               </div>
               <p class="text-white/70 text-lg mb-4">
-                "A must-have for any serious Discord community. The support team
-                is great, and the bot runs smoother than any I've tried before!"
+                "Ciddi bir Discord topluluğu için olmazsa olmaz. Destek ekibi harika ve bot daha önce denediğim herhangi birinden daha sorunsuz çalışıyor!"
               </p>
-              <h4 class="text-xl font-bold text-white">Evelyn Starfall</h4>
-              <p class="text-sm text-white/70">Server Owner</p>
+              <h4 class="text-xl font-bold text-white">Evelyn Yıldız</h4>
+              <p class="text-sm text-white/70">Sunucu Sahibi</p>
             </div>
             <div
               class="testimonial-card feature-card p-8 rounded-2xl min-w-[400px] max-w-[500px]"
@@ -365,16 +406,14 @@
                 <img
                   class="rounded-full"
                   src="./images/user.png"
-                  alt="User 5"
+                  alt="Kullanıcı 5"
                 />
               </div>
               <p class="text-white/70 text-lg mb-4">
-                "I replaced three different bots with this one! It does
-                everything I need and more. The customization options are next
-                level."
+                "Üç farklı botu bu tek bot ile değiştirdim! İhtiyacım olan her şeyi yapıyor ve daha fazlasını. Özelleştirme seçenekleri bir üst seviye."
               </p>
               <h4 class="text-xl font-bold text-white">Orion Ashford</h4>
-              <p class="text-sm text-white/70">Guild Leader</p>
+              <p class="text-sm text-white/70">Lonca Lideri</p>
             </div>
           </div>
         </div>
@@ -385,9 +424,9 @@
       class="bg-black min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 md:p-16 lg:p-32"
     >
       <div class="text-center mb-20">
-        <h2 class="text-5xl font-bold mb-4 text-white">Connect With Us</h2>
+        <h2 class="text-5xl font-bold mb-4 text-white">Bizimle İletişime Geçin</h2>
         <p class="text-xl text-white/70">
-          Join our community and contribute to development.
+          Topluluğumuza katılın ve geliştirmeye katkıda bulunun.
         </p>
       </div>
       <div
@@ -397,78 +436,35 @@
           class="bg-white/5 border border-white/10 rounded-2xl p-6 w-full max-w-md transition-colors feature-card"
         >
           <div class="flex items-center gap-4 mb-6">
-            <div
-              class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-2xl"
-            >
-              <svg class="w-6 h-6" fill="currentcolor" viewbox="0 0 24 24">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-white text-xl font-bold">Source Code</h3>
-              <p class="text-white/70 text-sm">View on GitHub</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4 text-white/70 text-sm">
-              <div class="flex items-center gap-1">
-                <svg class="w-4 h-4" fill="currentcolor" viewbox="0 0 16 16">
-                  <path
-                    d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"
-                  ></path>
-                </svg>
-                <span id="stars-count">Loading...</span>
-              </div>
-              <div class="flex items-center gap-1">
-                <svg class="w-4 h-4" fill="currentcolor" viewbox="0 0 16 16">
-                  <path
-                    d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                  ></path>
-                </svg>
-                <span id="forks-count">Loading...</span>
-              </div>
-            </div>
-            <a
-              href="https://github.com/RedolentHalo/discord-bot-website-template"
-              class="bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-              >View Source</a
-            >
-          </div>
-        </div>
-        <div
-          class="bg-white/5 border border-white/10 rounded-2xl p-6 w-full max-w-md transition-colors feature-card"
-        >
-          <div class="flex items-center gap-4 mb-6">
             <img
               src="images/logo.png"
-              alt="Server Icon"
+              alt="Sunucu İkonu"
               class="w-12 h-12 rounded-xl"
             />
             <div>
-              <h3 class="text-white text-xl font-bold">YOUR BOT Community</h3>
-              <p class="text-white/70 text-sm">Official Discord Server</p>
+              <h3 class="text-white text-xl font-bold">Feqan Bot Topluluğu</h3>
+              <p class="text-white/70 text-sm">Resmi Discord Sunucusu</p>
             </div>
           </div>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-4 text-white/70 text-sm">
               <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                <span>699 Online</span>
+                <span>699 Çevrimiçi</span>
               </div>
               <div class="w-1 h-1 rounded-full bg-white/20"></div>
-              <span>1000 Members</span>
+              <span>1000 Üye</span>
             </div>
             <a
               href="#"
               class="bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-              >Join Server</a
+              >Sunucuya Katıl</a
             >
           </div>
         </div>
       </div>
     </section>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-center py-16">
         <button
@@ -491,6 +487,7 @@
         </button>
       </div>
     </div>
+
     <footer class="text-white py-16 border-t border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -498,59 +495,90 @@
             <img
               class="h-10 mb-6"
               src="./images/logo.png"
-              alt="YOUR BOT Logo"
+              alt="Feqan Bot Logo"
             />
             <p class="text-lg text-white/70">
-              YOUR BOT is the ultimate tool for transforming your Discord server
-              management with powerful features like leveling, moderation,
-              giveaways, and more!
+              Feqan Bot, seviye sistemi, moderasyon, çekilişler ve daha fazlası gibi güçlü özelliklerle Discord sunucu yönetiminizi dönüştürmek için nihai araçtır!
             </p>
           </div>
           <div>
-            <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+            <h4 class="text-xl font-semibold mb-4">Hızlı Linkler</h4>
             <ul class="space-y-4">
               <li>
-                <a href="#hero" class="text-white/70 hover:text-white">Home</a>
+                <a href="#hero" class="text-white/70 hover:text-white">Ana Sayfa</a>
               </li>
               <li>
                 <a href="#features" class="text-white/70 hover:text-white"
-                  >Features</a
+                  >Özellikler</a
                 >
               </li>
               <li>
                 <a href="#commands" class="text-white/70 hover:text-white"
-                  >Commands</a
+                  >Komutlar</a
                 >
               </li>
               <li>
                 <a href="#testimonials" class="text-white/70 hover:text-white"
-                  >Testimonials</a
+                  >Yorumlar</a
                 >
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+            <h4 class="text-xl font-semibold mb-4">Takip Edin</h4>
             <ul class="space-y-4">
               <li>
-                <a href="#" class="text-white/70 hover:text-white">Invite</a>
+                <a href="#" class="text-white/70 hover:text-white">Davet Et</a>
               </li>
               <li>
                 <a href="#" class="text-white/70 hover:text-white">Discord</a>
               </li>
               <li>
-                <a href="#" class="text-white/70 hover:text-white">GitHub</a>
+                <a href="#" class="text-white/70 hover:text-white">Destek</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="mt-12 border-t border-white/20 pt-6 text-center">
           <p class="text-sm text-white/50">
-            © 2025 YOUR BOT. All rights reserved. • Not affiliated with Discord
-            Inc.
+            © 2025 Feqan Bot. Tüm hakları saklıdır. • Discord Inc. ile bağlantılı değildir.
           </p>
         </div>
       </div>
     </footer>
+
+    <script>
+      window.addEventListener('load', function() {
+        document.getElementById('loader').style.display = 'none';
+      });
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      }
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
